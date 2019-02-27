@@ -1,0 +1,30 @@
+{
+  "name": "get-or-create",
+  "version": "0.1.0",
+  "description": "Get or create nested property or element.",
+  "repository": "https://github.com/vilic/get-or-create.git",
+  "author": "vilicvane",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --build tsconfig.json",
+    "lint:library": "tslint --project src/library",
+    "lint:test": "tslint --project test",
+    "lint-prettier": "prettier --check \"**/*.{ts,tsx,js,jsx,json,yml,md}\"",
+    "lint": "yarn lint-prettier && yarn lint:library && yarn lint:test",
+    "test": "jest"
+  },
+  "main": "bld/library/index.js",
+  "types": "bld/library/index.d.ts",
+  "files": [
+    "src/library/**/*.ts",
+    "bld/library"
+  ],
+  "devDependencies": {
+    "@magicspace/configs": "^0.1.46",
+    "prettier": "^1.16.4",
+    "tslib": "^1.9.3",
+    "tslint": "^5.13.0",
+    "tslint-language-service": "^0.9.9",
+    "typescript": "^3.3.3333"
+  }
+}
