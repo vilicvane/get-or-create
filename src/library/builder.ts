@@ -76,10 +76,13 @@ export class GetOrCreateQueryBuilder<T> {
     if (query.type === 'property') {
       let {key, default: defaultValue} = query;
 
-      let value = source[key];
+      let value: unknown;
 
-      if (value === undefined) {
-        value = source[key] = evaluateDefaultValue(defaultValue);
+      if (key in source) {
+        value = source[key];
+      } else {
+        value = evaluateDefaultValue(defaultValue);
+        source[key] = value;
       }
 
       return value;
