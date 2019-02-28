@@ -25,11 +25,11 @@ export class GetOrCreateQueryBuilder<T> {
 
   property<TKey extends keyof T>(
     key: TKey,
-    defaultValue: Exclude<T[TKey], undefined>,
+    defaultValue: GetOrCreateQueryDefault<Exclude<T[TKey], undefined>>,
   ): GetOrCreateQueryBuilder<Exclude<T[TKey], undefined>>;
   property<TKey extends keyof T>(
     key: TKey,
-    defaultValue: T[TKey],
+    defaultValue: GetOrCreateQueryDefault<T[TKey]>,
   ): GetOrCreateQueryBuilder<T[TKey]>;
   property<TKey extends keyof T, TDefaultValue extends T[TKey]>(
     key: TKey,

@@ -1,12 +1,13 @@
 {
   "name": "get-or-create",
   "version": "0.1.0",
-  "description": "Get or create nested property or element.",
+  "description": "A simple utility to get or create nested property and element in place.",
   "repository": "https://github.com/vilic/get-or-create.git",
   "author": "vilicvane",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --build tsconfig.json",
+    "build:library": "tsc --project src/library",
+    "build": "yarn build:library",
     "lint:library": "tslint --project src/library",
     "lint:test": "tslint --project test",
     "lint-prettier": "prettier --check \"**/*.{ts,tsx,js,jsx,json,yml,md}\"",
@@ -21,7 +22,10 @@
   ],
   "devDependencies": {
     "@magicspace/configs": "^0.1.46",
+    "@types/jest": "^24.0.9",
+    "jest": "^24.1.0",
     "prettier": "^1.16.4",
+    "ts-jest": "^24.0.0",
     "tslib": "^1.9.3",
     "tslint": "^5.13.0",
     "tslint-language-service": "^0.9.9",

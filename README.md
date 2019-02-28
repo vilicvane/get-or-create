@@ -1,4 +1,5 @@
 [![NPM Package](https://badge.fury.io/js/get-or-create.svg)](https://www.npmjs.com/package/get-or-create)
+[![Build Status](https://travis-ci.org/vilic/get-or-create.svg?branch=master)](https://travis-ci.org/vilic/get-or-create)
 
 # Get or Create
 
