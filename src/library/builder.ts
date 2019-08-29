@@ -25,16 +25,8 @@ export class GetOrCreateQueryBuilder<T> {
 
   property<TKey extends keyof T>(
     key: TKey,
-    defaultValue: GetOrCreateQueryDefault<Exclude<T[TKey], undefined>>,
-  ): GetOrCreateQueryBuilder<Exclude<T[TKey], undefined>>;
-  property<TKey extends keyof T>(
-    key: TKey,
-    defaultValue: GetOrCreateQueryDefault<T[TKey]>,
-  ): GetOrCreateQueryBuilder<T[TKey]>;
-  property<TKey extends keyof T, TDefaultValue extends T[TKey]>(
-    key: TKey,
-    defaultValue: GetOrCreateQueryDefault<TDefaultValue>,
-  ): GetOrCreateQueryBuilder<TDefaultValue> {
+    defaultValue?: GetOrCreateQueryDefault<Exclude<T[TKey], undefined>>,
+  ): GetOrCreateQueryBuilder<Exclude<T[TKey], undefined>> {
     return new GetOrCreateQueryBuilder(this, {
       type: 'property',
       key,
@@ -44,7 +36,7 @@ export class GetOrCreateQueryBuilder<T> {
 
   element(
     matcher: (object: ArrayElement<T>) => boolean,
-    defaultValue: GetOrCreateQueryDefault<ArrayElement<T>>,
+    defaultValue?: GetOrCreateQueryDefault<ArrayElement<T>>,
   ): GetOrCreateQueryBuilder<ArrayElement<T>> {
     return new GetOrCreateQueryBuilder(this, {
       type: 'element',
@@ -78,8 +70,10 @@ export class GetOrCreateQueryBuilder<T> {
 
       let value: unknown;
 
-      if (key in source) {
-        value = source[key];
+      let sourceValue = source[key];
+
+      if (sourceValue !== undefined) {
+        value = sourceValue;
       } else {
         value = evaluateDefaultValue(defaultValue);
         source[key] = value;

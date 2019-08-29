@@ -39,9 +39,9 @@ Object {
 
 test('should create last level with mutated entry', () => {
   let data: {
-    foo?: {
+    foo: {
       id: string;
-      bar?: {
+      bar: {
         id: string;
         value?: number;
       }[];
@@ -56,9 +56,9 @@ test('should create last level with mutated entry', () => {
   };
 
   let entry = getOrCreate(data)
-    .property('foo', [])
-    .element(element => element.id === 'abc', {id: 'abc'})
-    .property('bar', [])
+    .property('foo')
+    .element(element => element.id === 'abc')
+    .property('bar')
     .element(element => element.id === 'def', {id: 'def'})
     .exec();
 
