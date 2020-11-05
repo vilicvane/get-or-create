@@ -1,6 +1,6 @@
 {
   "name": "get-or-create",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A simple utility to get or create nested property and element in place.",
   "repository": "https://github.com/vilic/get-or-create.git",
   "author": "vilicvane",
