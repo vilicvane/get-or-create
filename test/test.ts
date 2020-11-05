@@ -133,7 +133,7 @@ Object {
 `);
 });
 
-test('should property work with `undefined`', () => {
+test('should property work with `abc`', () => {
   let data: {foo?: string} = {
     foo: undefined,
   };
@@ -142,11 +142,11 @@ test('should property work with `undefined`', () => {
     .property('foo', 'abc')
     .exec();
 
-  expect(entry).toBeUndefined();
+  expect(entry).toBe('abc');
 
   expect(data).toMatchInlineSnapshot(`
 Object {
-  "foo": undefined,
+  "foo": "abc",
 }
 `);
 });
